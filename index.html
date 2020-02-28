@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <!--
+            CALCOLATRICE HTML+CSS+JS CREATA DA
+                https://greco395.com
+        -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta author="greco395.com">
+        <title>
+                Calcolatrice by greco395.com
+        </title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .pulsante{
+                width: 80;
+                height: 80;
+                font-size: 25;
+                margin: 2;
+                cursor: pointer;
+                border: none;
+                color: white;
+                background: #607d8b;
+            }
+            .schermo{
+                width: 338;
+                height: 60;
+                margin: 5;
+                font-size: 25;
+                padding: 5;
+                border: none;
+                color: #607d8b;
+            }
+            .main{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                
+            }
+            .bg{
+                background: linear-gradient(to right, #e91e63, #3f51b5);
+                height: 100%;
+            }
+        </style>
+        <script>
+            function stampaAschermo(num){
+                document.calcolatrice.schermo.value = document.calcolatrice.schermo.value+num
+            }
+            function calcola(){
+                var numeri = document.calcolatrice.schermo.value;
+                if(numeri){
+                    document.calcolatrice.schermo.value = eval(numeri)
+                }
+            }
+            function reset(){
+                 document.calcolatrice.schermo.value = '';
+            }
+            function cancella(){
+                var numeri = document.calcolatrice.schermo.value;
+                document.calcolatrice.schermo.value = numeri.substring(0,numeri.length-1);
+            }
+        </script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="bg"></div>
+        <div class="main">
+            <form name="calcolatrice">
+                <input class="schermo" name="schermo" disabled>
+                <table>
+                    <tr>
+                        <td><input class="pulsante fa fa-input" type="button" value="&#xf2ed" onclick="reset()" /></td>
+                        <td><input class="pulsante fa fa-input" type="button" value="&#xf0e2" onclick="cancella()" /></td>
+                        <td><input class="pulsante fa fa-input" type="button" value="&#xf529" onclick="stampaAschermo('/')" /></td>
+                        <td><input class="pulsante fa fa-input" type="button" value="&#xf00d" onclick="stampaAschermo('*')" /></td>
+                    </tr>
+                    <tr>
+                        <td><input class="pulsante" type="button" value="7" onclick="stampaAschermo(7)" /></td>
+                        <td><input class="pulsante" type="button" value="8" onclick="stampaAschermo(8)" /></td>
+                        <td><input class="pulsante" type="button" value="9" onclick="stampaAschermo(9)" /></td>
+                        <td><input class="pulsante fa fa-input" type="button" value="&#xf068" onclick="stampaAschermo('-')" /></td>
+                    </tr>
+                    <tr>
+                        <td><input class="pulsante" type="button" value="4" onclick="stampaAschermo(4)" /></td>
+                        <td><input class="pulsante" type="button" value="5" onclick="stampaAschermo(5)" /></td>
+                        <td><input class="pulsante" type="button" value="6" onclick="stampaAschermo(6)" /></td>
+                        <td><input class="pulsante fa fa-input" type="button" value="&#xf067" onclick="stampaAschermo('+')" /></td>
+                    </tr>
+                    <tr>
+                        <td><input class="pulsante" type="button" value="1" onclick="stampaAschermo(1)" /></td>
+                        <td><input class="pulsante" type="button" value="2" onclick="stampaAschermo(2)" /></td>
+                        <td><input class="pulsante" type="button" value="3" onclick="stampaAschermo(3)" /></td>
+                        <td rowspan="5"><input class="pulsante fa fa-input" type="button" value="&#xf52c" onclick="calcola()" style="height:165" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input class="pulsante" type="button" value="0" onclick="stampaAschermo(0)" style="width:165;" /></td>
+                        <td><input class="pulsante" type="button" value="." onclick="stampaAschermo('.')" /></td>
+                    </tr>
+                </table>
+            </form>
+            <br><br><br><div align="right"><a href="https://greco395.com/projects/_prgts/calculator/_code.php"><font color="white">CODICE SORGENTE</font></a></div>
+        </div>
+    </body>
+</html>
